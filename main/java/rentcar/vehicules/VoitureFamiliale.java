@@ -15,7 +15,7 @@ public class VoitureFamiliale extends Vehicule{
     private Boolean siegeBebeDisponible;
     private Boolean grandCoffre;
     
-    public VoitureFamiliale(String matricule, String marque, String modele, String puissance, String carburant , Date anneeModele, 
+    public VoitureFamiliale(String matricule, String marque, String modele, String puissance, String carburant , int anneeModele, 
             Double kilometrage, Boolean roueSecours, Boolean CricOutils, Boolean RadioAntenne, Boolean enjolivers,
             Boolean retroviseurs,Boolean climatiseurMarche, int nombrePlaces, Boolean siegeBebeDisponible, Boolean grandCoffre){
         super(matricule, marque, modele, puissance, carburant, anneeModele, kilometrage, roueSecours, CricOutils, RadioAntenne, enjolivers, retroviseurs, climatiseurMarche);

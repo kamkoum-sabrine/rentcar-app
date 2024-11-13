@@ -16,7 +16,7 @@ public class Vehicule {
     protected String modele;
     protected String puissance;
     protected String Carburant;
-    protected Date AnneeModele;
+    protected int AnneeModele;
     protected Double kilometrage;
     protected Boolean roueSecours;
     protected Boolean CricOutils;
@@ -25,7 +25,7 @@ public class Vehicule {
     protected Boolean retroviseurs;
     protected Boolean climatiseurMarche;
     
-    public Vehicule(String matricule, String marque, String modele, String puissance, String carburant , Date anneeModele, 
+    public Vehicule(String matricule, String marque, String modele, String puissance, String carburant , int anneeModele, 
             Double kilometrage, Boolean roueSecours, Boolean CricOutils, Boolean RadioAntenne, Boolean enjolivers,
             Boolean retroviseurs,Boolean climatiseurMarche){
         this.matricule = matricule;
@@ -63,7 +63,7 @@ public class Vehicule {
         return Carburant;
     }
 
-    public Date getAnneeModele() {
+    public int getAnneeModele() {
         return AnneeModele;
     }
 
@@ -115,7 +115,7 @@ public class Vehicule {
         this.Carburant = Carburant;
     }
 
-    public void setAnneeModele(Date AnneeModele) {
+    public void setAnneeModele(int AnneeModele) {
         this.AnneeModele = AnneeModele;
     }
 

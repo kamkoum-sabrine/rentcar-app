@@ -20,6 +20,9 @@ public class Client extends Personne{
      private Date datePermis;
      private String lieuPermis;
 
+     public Client(){
+         super();
+     }
     public Client(String societe, String carteCredit, double cin, String nom, String prenom, 
             double tel, String email, String adresse, Date dateNaissance, String nationalite, Date dateCin, String lieuCin,
             String numPermis, String lieuPermis) {

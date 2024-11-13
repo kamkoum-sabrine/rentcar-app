@@ -22,6 +22,9 @@ public class Personne {
     protected Date dateCin;
     protected String lieuCin;
 
+    public Personne(){
+        
+    }
     public Personne(double cin, String nom, String prenom, double tel, String email, String adresse, Date dateNaissance, String nationalite, Date dateCin, String lieuCin) {
         this.cin = cin;
         this.nom = nom;

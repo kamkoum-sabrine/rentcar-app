@@ -5,6 +5,7 @@
 package rentcar.vehicules;
 
 import java.util.Date;
+import rentcar.management.CoutException;
 import rentcar.management.DateLocationException;
 import rentcar.personnes.Client;
 
@@ -21,7 +22,7 @@ public class ContratLocation {
     private Date dateFin;
     private double coutParJour;
 
-    public ContratLocation(int id, Client conducteur1, Client conducteur2, Vehicule vehicule, Date dateDebut, Date datFin, double coutParJour) throws DateLocationException{
+    public ContratLocation(int id, Client conducteur1, Client conducteur2, Vehicule vehicule, Date dateDebut, Date datFin, double coutParJour) throws DateLocationException, CoutException{
         this.id = id;
         this.conducteur1 = conducteur1;
         this.conducteur2 = conducteur2;
@@ -29,7 +30,9 @@ public class ContratLocation {
         this.dateDebut = dateDebut;
         this.dateFin = datFin;
         if (this.dateDebut.compareTo(this.dateFin) > 0) throw new DateLocationException(); 
+        
         this.coutParJour = coutParJour;
+        if (this.coutParJour<=0) throw new CoutException();
     }
 
     public int getId() {
@@ -85,8 +88,9 @@ public class ContratLocation {
         if (this.dateDebut.compareTo(this.dateFin) > 0) throw new DateLocationException(); 
     }
 
-    public void setCoutParJour(double coutParJour) {
+    public void setCoutParJour(double coutParJour) throws CoutException {
         this.coutParJour = coutParJour;
+        if (this.coutParJour<=0) throw new CoutException();
     }
 
     @Override
