@@ -6,24 +6,25 @@ package rentcar.personnes;
 
 import java.util.ArrayList;
 import java.util.Date;
+import rentcar.vehicules.ContratLocation;
 
 /**
  *
  * @author LENOVO
  */
 public class Client extends Personne{
-         private ArrayList<Integer> historiqueLocation; //type Location dans le tableau
+     private ArrayList<ContratLocation> historiqueLocation; //type Location dans le tableau
      private String societe;
      private String carteCredit;
      private String numPermis;
      private Date datePermis;
      private String lieuPermis;
 
-    public Client(ArrayList<Integer> historiqueLocation, String societe, String carteCredit, double cin, String nom, String prenom, 
+    public Client(String societe, String carteCredit, double cin, String nom, String prenom, 
             double tel, String email, String adresse, Date dateNaissance, String nationalite, Date dateCin, String lieuCin,
             String numPermis, String lieuPermis) {
             super(cin, nom, prenom, tel, email, adresse, dateNaissance, nationalite, dateCin, lieuCin);
-            this.historiqueLocation = historiqueLocation;
+            this.historiqueLocation= new ArrayList<>();
             this.societe = societe;
             this.carteCredit = carteCredit;
             this.numPermis = numPermis;
@@ -45,7 +46,7 @@ public class Client extends Personne{
         return this.historiqueLocation.size()==1;
     }
 
-    public ArrayList<Integer> getHistoriqueLocation() {
+    public ArrayList<ContratLocation> getHistoriqueLocation() {
         return historiqueLocation;
     }
 
@@ -69,7 +70,7 @@ public class Client extends Personne{
         return lieuPermis;
     }
 
-    public void setHistoriqueLocation(ArrayList<Integer> historiqueLocation) {
+    public void setHistoriqueLocation(ArrayList<ContratLocation> historiqueLocation) {
         this.historiqueLocation = historiqueLocation;
     }
 
@@ -96,5 +97,13 @@ public class Client extends Personne{
     @Override
     public String toString() {
         return "Client{" + "historiqueLocation=" + historiqueLocation + ", societe=" + societe + ", carteCredit=" + carteCredit + ", numPermis=" + numPermis + ", datePermis=" + datePermis + ", lieuPermis=" + lieuPermis + '}';
+    }
+    
+    public void ajouterLocation(ContratLocation location){
+        this.historiqueLocation.add(location);
+    }
+    
+    public void supprimerLocation(int index){
+        this.historiqueLocation.remove(index);
     }
 }
