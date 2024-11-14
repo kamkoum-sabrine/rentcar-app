@@ -7,6 +7,7 @@ package rentcar.management;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import rentcar.personnes.Adresse;
 import rentcar.personnes.Technicien;
 import rentcar.vehicules.Vehicule;
 
@@ -17,7 +18,7 @@ import rentcar.vehicules.Vehicule;
 public class Garage {
      private int idGarage;
     private String nom;
-    private String adresse;
+    private Adresse adresse;
     private String numeroTelephone;
     private int capacite;
     private ArrayList<Technicien> techniciens;
@@ -28,7 +29,7 @@ public class Garage {
     public Garage() {
     }
 
-    public Garage(int idGarage, String nom, String adresse, String numeroTelephone, int capacite,  String horairesOuverture, Set<String> servicesDisponibles) {
+    public Garage(int idGarage, String nom, Adresse adresse, String numeroTelephone, int capacite,  String horairesOuverture, Set<String> servicesDisponibles) {
         this.idGarage = idGarage;
         this.nom = nom;
         this.adresse = adresse;
@@ -50,7 +51,7 @@ public class Garage {
         return nom;
     }
 
-    public String getAdresse() {
+    public Adresse getAdresse() {
         return adresse;
     }
 
@@ -82,7 +83,7 @@ public class Garage {
         this.nom = nom;
     }
 
-    public void setAdresse(String adresse) {
+    public void setAdresse(Adresse adresse) {
         this.adresse = adresse;
     }
 

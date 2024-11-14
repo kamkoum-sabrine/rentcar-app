@@ -10,7 +10,9 @@ import rentcar.vehicules.Vehicule;
  *
  * @author LENOVO
  */
+
 public class Assurance {
+    
     private int idAssurance;
     private String nomAssureur;
     private String numeroPolice;

@@ -13,18 +13,20 @@ import rentcar.vehicules.ContratLocation;
  * @author LENOVO
  */
 public class Client extends Personne{
-     private ArrayList<ContratLocation> historiqueLocation; //type Location dans le tableau
+     private ArrayList<ContratLocation> historiqueLocation; 
      private String societe;
      private String carteCredit;
      private String numPermis;
      private Date datePermis;
      private String lieuPermis;
+     
+     
 
      public Client(){
          super();
      }
     public Client(String societe, String carteCredit, double cin, String nom, String prenom, 
-            double tel, String email, String adresse, Date dateNaissance, String nationalite, Date dateCin, String lieuCin,
+            double tel, String email, Adresse adresse, Date dateNaissance, String nationalite, Date dateCin, String lieuCin,
             String numPermis, String lieuPermis) {
             super(cin, nom, prenom, tel, email, adresse, dateNaissance, nationalite, dateCin, lieuCin);
             this.historiqueLocation= new ArrayList<>();

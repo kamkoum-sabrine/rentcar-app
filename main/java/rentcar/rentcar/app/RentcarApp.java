@@ -11,8 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 import rentcar.management.CoutException;
 import rentcar.management.DateLocationException;
+import rentcar.management.Garage;
+import rentcar.personnes.Adresse;
 import rentcar.personnes.Client;
 import rentcar.vehicules.ContratLocation;
+import rentcar.vehicules.CoordonnéesGPS;
 import rentcar.vehicules.FiltreVehicule;
 import rentcar.vehicules.Vehicule;
 import rentcar.vehicules.VoitureCommerciale;
@@ -28,10 +31,11 @@ public class RentcarApp {
         System.out.println("Hello World!");
         Client c1 = new Client();
          List<Vehicule> vehicules = new ArrayList<>();
-        
-        vehicules.add(new VoitureCommerciale("123ABC", "Peugeot", "Boxer", "90HP", "Diesel", 2020, 40000.0, true, true, true, true, true, true, 1200, true, true, "Commercial", 150.0));
-        vehicules.add(new VoitureFamiliale("456DEF", "Renault", "Scenic", "110HP", "Diesel", 2019, 30000.0, true, true, true, true, true, true, 7, true, true, "Familiale", 70.0));
-        vehicules.add(new VoitureCommerciale("789GHI", "Ford", "Transit", "95HP", "Diesel", 2021, 20000.0, true, true, true, true, true, true, 800, false, false, "Commercial", 90.0));
+          CoordonnéesGPS positionInitiale = new CoordonnéesGPS(36.8065, 10.1815); // Par exemple, Tunis
+
+        vehicules.add(new VoitureCommerciale("123ABC", "Peugeot", "Boxer", "90HP", "Diesel", 2020, 40000.0, true, true, true, true, true, true, 1200, true, true, "Commercial", 150.0,positionInitiale));
+        vehicules.add(new VoitureFamiliale("456DEF", "Renault", "Scenic", "110HP", "Diesel", 2019, 30000.0, true, true, true, true, true, true, 7, true, true, "Familiale", 70.0,positionInitiale));
+        vehicules.add(new VoitureCommerciale("789GHI", "Ford", "Transit", "95HP", "Diesel", 2021, 20000.0, true, true, true, true, true, true, 800, false, false, "Commercial", 90.0,positionInitiale));
 
      
 
@@ -65,8 +69,9 @@ public class RentcarApp {
             System.out.println("Erreur de coût dans le contrat de location : " + e.getMessage());
         }**/
          
-        
-
-      
+       
+        Adresse adresseGarage = new Adresse("123 Rue de l'Atelier", "Tunis", "1000", "Tunisie");
+        Adresse adresseClient = new Adresse("45 Avenue de la Liberté", "Ariana", "2080", "Tunisie");
+    
     }
 }

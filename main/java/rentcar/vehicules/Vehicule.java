@@ -28,10 +28,11 @@ public class Vehicule {
     protected Boolean climatiseurMarche;
     private String type; 
     private Double coutParJour;
+    private CoordonnéesGPS coordonneesGPS;
     
     public Vehicule(String matricule, String marque, String modele, String puissance, String carburant , int anneeModele, 
             Double kilometrage, Boolean roueSecours, Boolean CricOutils, Boolean RadioAntenne, Boolean enjolivers,
-            Boolean retroviseurs,Boolean climatiseurMarche,String type,double coutParJour){
+            Boolean retroviseurs,Boolean climatiseurMarche,String type,double coutParJour,CoordonnéesGPS coordonneesGPS){
         this.matricule = matricule;
         this.modele = modele;
         this.marque = marque;
@@ -47,6 +48,7 @@ public class Vehicule {
         this.climatiseurMarche = climatiseurMarche;
         this.type = type;
         this.coutParJour = coutParJour;
+        this.coordonneesGPS = coordonneesGPS;
     }
 
     public String getMatricule() {
@@ -163,9 +165,17 @@ public class Vehicule {
 
     @Override
     public String toString() {
-        return "Vehicule{" + "matricule=" + matricule + ", marque=" + marque + ", modele=" + modele + ", puissance=" + puissance + ", Carburant=" + Carburant + ", AnneeModele=" + AnneeModele + ", kilometrage=" + kilometrage + ", roueSecours=" + roueSecours + ", CricOutils=" + CricOutils + ", RadioAntenne=" + RadioAntenne + ", enjolivers=" + enjolivers + ", retroviseurs=" + retroviseurs + ", climatiseurMarche=" + climatiseurMarche + ", type=" + type + ", coutParJour=" + coutParJour + '}';
+        return "Vehicule{" + "matricule=" + matricule + ", marque=" + marque + ", modele=" + modele + ", puissance=" + puissance + ", Carburant=" + Carburant + ", AnneeModele=" + AnneeModele + ", kilometrage=" + kilometrage + ", roueSecours=" + roueSecours + ", CricOutils=" + CricOutils + ", RadioAntenne=" + RadioAntenne + ", enjolivers=" + enjolivers + ", retroviseurs=" + retroviseurs + ", climatiseurMarche=" + climatiseurMarche + ", type=" + type + ", coutParJour=" + coutParJour + ", coordonneesGPS=" + coordonneesGPS + '}';
     }
 
+    
+    public CoordonnéesGPS getCoordonneesGPS() {
+        return coordonneesGPS;
+    }
+
+    public void setCoordonneesGPS(CoordonnéesGPS coordonneesGPS) {
+        this.coordonneesGPS = coordonneesGPS;
+    }
     
     public static List<Vehicule> filtrerVehicules(List<Vehicule> vehicules, FiltreVehicule filtre) {
         List<Vehicule> vehiculesFiltres = new ArrayList<>();

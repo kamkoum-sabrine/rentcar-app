@@ -21,7 +21,7 @@ public class Chauffeur extends Personne{
     private double prixJours;
 
     public Chauffeur(boolean disponibilite, int experience, String numPermis, Date datePermis, String lieuPermis,
-            String categoriePermis, double cin, String nom, String prenom, double tel, String email, String adresse, 
+            String categoriePermis, double cin, String nom, String prenom, double tel, String email, Adresse adresse, 
             Date dateNaissance, String nationalite, Date dateCin, String lieuCin) {
         super(cin, nom, prenom, tel, email, adresse, dateNaissance, nationalite, dateCin, lieuCin);
         this.disponibilite = disponibilite;

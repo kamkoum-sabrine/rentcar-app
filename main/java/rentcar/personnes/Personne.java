@@ -16,7 +16,7 @@ public class Personne {
     protected String prenom;
     protected double tel;
     protected String email;
-    protected String adresse;
+    protected Adresse adresse;
     protected Date dateNaissance;
     protected String nationalite;
     protected Date dateCin;
@@ -25,7 +25,7 @@ public class Personne {
     public Personne(){
         
     }
-    public Personne(double cin, String nom, String prenom, double tel, String email, String adresse, Date dateNaissance, String nationalite, Date dateCin, String lieuCin) {
+    public Personne(double cin, String nom, String prenom, double tel, String email, Adresse adresse, Date dateNaissance, String nationalite, Date dateCin, String lieuCin) {
         this.cin = cin;
         this.nom = nom;
         this.prenom = prenom;
@@ -58,7 +58,7 @@ public class Personne {
         return email;
     }
 
-    public String getAdresse() {
+    public Adresse getAdresse() {
         return adresse;
     }
 
@@ -98,7 +98,7 @@ public class Personne {
         this.email = email;
     }
 
-    public void setAdresse(String adresse) {
+    public void setAdresse(Adresse adresse) {
         this.adresse = adresse;
     }
 
