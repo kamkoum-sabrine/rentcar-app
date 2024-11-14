@@ -50,7 +50,13 @@ public class VoitureCommerciale extends Vehicule{
 
     @Override
     public String toString() {
-        return "VoitureCommerciale{" +toString()+ " capaciteCharge=" + capaciteCharge + ", toitOuvrant=" + toitOuvrant + ", cameraRecul=" + cameraRecul + '}';
+        return "VoitureCommerciale{" +
+               "capaciteCharge=" + capaciteCharge +
+               ", toitOuvrant=" + toitOuvrant +
+               ", cameraRecul=" + cameraRecul +
+               ", " + super.toString() + // Appel sécurisé au toString() de Vehicule
+               '}';
     }
+
     
 }

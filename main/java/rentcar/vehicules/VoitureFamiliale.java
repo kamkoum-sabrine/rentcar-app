@@ -50,6 +50,12 @@ public class VoitureFamiliale extends Vehicule{
 
     @Override
     public String toString() {
-        return "VoitureFamiliale{" +toString()+ " nombrePlaces=" + nombrePlaces + ", siegeBebeDisponible=" + siegeBebeDisponible + ", grandCoffre=" + grandCoffre + '}';
+        return "VoitureFamiliale{" +
+               "nombrePlaces=" + nombrePlaces +
+               ", siegeBebeDisponible=" + siegeBebeDisponible +
+               ", grandCoffre=" + grandCoffre +
+               ", " + super.toString() + // Appel sécurisé au toString() de Vehicule
+               '}';
     }
+
 }

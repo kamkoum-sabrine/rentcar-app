@@ -29,20 +29,20 @@ public class RentcarApp {
         Client c1 = new Client();
          List<Vehicule> vehicules = new ArrayList<>();
         
-        vehicules.add(new VoitureCommerciale("123ABC", "Peugeot", "Boxer", "90HP", "Diesel", 2020, 40000.0, true, true, true, true, true, true, 1200, true, true, "Commercial", 80.0));
+        vehicules.add(new VoitureCommerciale("123ABC", "Peugeot", "Boxer", "90HP", "Diesel", 2020, 40000.0, true, true, true, true, true, true, 1200, true, true, "Commercial", 150.0));
         vehicules.add(new VoitureFamiliale("456DEF", "Renault", "Scenic", "110HP", "Diesel", 2019, 30000.0, true, true, true, true, true, true, 7, true, true, "Familiale", 70.0));
         vehicules.add(new VoitureCommerciale("789GHI", "Ford", "Transit", "95HP", "Diesel", 2021, 20000.0, true, true, true, true, true, true, 800, false, false, "Commercial", 90.0));
 
      
 
         // Appliquer un filtre par prix (<= 100)
-       /** FiltreVehicule filtrePrix = vehicule -> vehicule.getCoutParJour()<= 100;
+        FiltreVehicule filtrePrix = vehicule -> vehicule.getCoutParJour() <= 100;
         List<Vehicule> vehiculesFiltresParPrix = Vehicule.filtrerVehicules(vehicules, filtrePrix);
+
         System.out.println("Véhicules filtrés par prix (<= 100) :");
         for (Vehicule vehicule : vehiculesFiltresParPrix) {
             System.out.println(vehicule);
-        }**/
-
+        }
        
        
         /** try {
