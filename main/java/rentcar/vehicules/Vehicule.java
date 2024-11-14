@@ -4,7 +4,9 @@
  */
 package rentcar.vehicules;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -24,10 +26,12 @@ public class Vehicule {
     protected Boolean enjolivers;
     protected Boolean retroviseurs;
     protected Boolean climatiseurMarche;
+    private String type; 
+    private Double coutParJour;
     
     public Vehicule(String matricule, String marque, String modele, String puissance, String carburant , int anneeModele, 
             Double kilometrage, Boolean roueSecours, Boolean CricOutils, Boolean RadioAntenne, Boolean enjolivers,
-            Boolean retroviseurs,Boolean climatiseurMarche){
+            Boolean retroviseurs,Boolean climatiseurMarche,String type,double coutParJour){
         this.matricule = matricule;
         this.modele = modele;
         this.marque = marque;
@@ -41,6 +45,8 @@ public class Vehicule {
         this.enjolivers = enjolivers;
         this.retroviseurs = retroviseurs;
         this.climatiseurMarche = climatiseurMarche;
+        this.type = type;
+        this.coutParJour = coutParJour;
     }
 
     public String getMatricule() {
@@ -147,8 +153,37 @@ public class Vehicule {
         this.climatiseurMarche = climatiseurMarche;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
-        return "Vehicule{" + "matricule=" + matricule + ", marque=" + marque + ", modele=" + modele + ", puissance=" + puissance + ", Carburant=" + Carburant + ", AnneeModele=" + AnneeModele + ", kilometrage=" + kilometrage + ", roueSecours=" + roueSecours + ", CricOutils=" + CricOutils + ", RadioAntenne=" + RadioAntenne + ", enjolivers=" + enjolivers + ", retroviseurs=" + retroviseurs + ", climatiseurMarche=" + climatiseurMarche + '}';
+        return "Vehicule{" + "matricule=" + matricule + ", marque=" + marque + ", modele=" + modele + ", puissance=" + puissance + ", Carburant=" + Carburant + ", AnneeModele=" + AnneeModele + ", kilometrage=" + kilometrage + ", roueSecours=" + roueSecours + ", CricOutils=" + CricOutils + ", RadioAntenne=" + RadioAntenne + ", enjolivers=" + enjolivers + ", retroviseurs=" + retroviseurs + ", climatiseurMarche=" + climatiseurMarche + ", type=" + type + ", coutParJour=" + coutParJour + '}';
     }
+
+    
+    public static List<Vehicule> filtrerVehicules(List<Vehicule> vehicules, FiltreVehicule filtre) {
+        List<Vehicule> vehiculesFiltres = new ArrayList<>();
+        for (Vehicule vehicule : vehicules) {
+            if (filtre.filtrer(vehicule)) {
+                vehiculesFiltres.add(vehicule);
+            }
+        }
+        return vehiculesFiltres;
+    }
+
+    public Double getCoutParJour() {
+        return coutParJour;
+    }
+
+    public void setCoutParJour(Double coutParJour) {
+        this.coutParJour = coutParJour;
+    }
+    
+    
 }

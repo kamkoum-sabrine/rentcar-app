@@ -7,12 +7,16 @@ package rentcar.rentcar.app;
 import java.text.ParseException;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import rentcar.management.CoutException;
 import rentcar.management.DateLocationException;
 import rentcar.personnes.Client;
 import rentcar.vehicules.ContratLocation;
+import rentcar.vehicules.FiltreVehicule;
 import rentcar.vehicules.Vehicule;
 import rentcar.vehicules.VoitureCommerciale;
+import rentcar.vehicules.VoitureFamiliale;
 
 /**
  *
@@ -23,9 +27,25 @@ public class RentcarApp {
     public static void main(String[] args) {
         System.out.println("Hello World!");
         Client c1 = new Client();
-        VoitureCommerciale v1 = new VoitureCommerciale("245 TN 1234", "KIA", "Sportege", "5CV", "Essence", 2024, 154.2, true, true, true, true, true, true, 0, true, true);
+         List<Vehicule> vehicules = new ArrayList<>();
+        
+        vehicules.add(new VoitureCommerciale("123ABC", "Peugeot", "Boxer", "90HP", "Diesel", 2020, 40000.0, true, true, true, true, true, true, 1200, true, true, "Commercial", 80.0));
+        vehicules.add(new VoitureFamiliale("456DEF", "Renault", "Scenic", "110HP", "Diesel", 2019, 30000.0, true, true, true, true, true, true, 7, true, true, "Familiale", 70.0));
+        vehicules.add(new VoitureCommerciale("789GHI", "Ford", "Transit", "95HP", "Diesel", 2021, 20000.0, true, true, true, true, true, true, 800, false, false, "Commercial", 90.0));
+
+     
+
+        // Appliquer un filtre par prix (<= 100)
+       /** FiltreVehicule filtrePrix = vehicule -> vehicule.getCoutParJour()<= 100;
+        List<Vehicule> vehiculesFiltresParPrix = Vehicule.filtrerVehicules(vehicules, filtrePrix);
+        System.out.println("Véhicules filtrés par prix (<= 100) :");
+        for (Vehicule vehicule : vehiculesFiltresParPrix) {
+            System.out.println(vehicule);
+        }**/
+
        
-         try {
+       
+        /** try {
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             
             // Créer les objets Date
@@ -43,6 +63,10 @@ public class RentcarApp {
 
         } catch (CoutException e) {
             System.out.println("Erreur de coût dans le contrat de location : " + e.getMessage());
-        }
+        }**/
+         
+        
+
+      
     }
 }
