@@ -15,10 +15,10 @@ public class VoitureCommerciale extends Vehicule{
     private Boolean toitOuvrant;
     private Boolean cameraRecul;
     
-    public VoitureCommerciale(String matricule, String marque, String modele, String puissance, String carburant , Date anneeModele, 
+    public VoitureCommerciale(String matricule, String marque, String modele, String puissance, String carburant , int anneeModele, 
             Double kilometrage, Boolean roueSecours, Boolean CricOutils, Boolean RadioAntenne, Boolean enjolivers,
-            Boolean retroviseurs,Boolean climatiseurMarche, int capaciteCharge, Boolean toitOuvrant, Boolean cameraRecul){
-        super(matricule, marque, modele, puissance, carburant, anneeModele, kilometrage, roueSecours, CricOutils, RadioAntenne, enjolivers, retroviseurs, climatiseurMarche);
+            Boolean retroviseurs,Boolean climatiseurMarche, int capaciteCharge, Boolean toitOuvrant, Boolean cameraRecul,String type,Double coutParJour, CoordonnéesGPS  coordonneesGPS){
+        super(matricule, marque, modele, puissance, carburant, anneeModele, kilometrage, roueSecours, CricOutils, RadioAntenne, enjolivers, retroviseurs, climatiseurMarche,type,coutParJour, coordonneesGPS);
         this.capaciteCharge = capaciteCharge;
         this.toitOuvrant = toitOuvrant;
         this.cameraRecul = cameraRecul;
@@ -50,7 +50,13 @@ public class VoitureCommerciale extends Vehicule{
 
     @Override
     public String toString() {
-        return "VoitureCommerciale{" +toString()+ " capaciteCharge=" + capaciteCharge + ", toitOuvrant=" + toitOuvrant + ", cameraRecul=" + cameraRecul + '}';
+        return "VoitureCommerciale{" +
+               "capaciteCharge=" + capaciteCharge +
+               ", toitOuvrant=" + toitOuvrant +
+               ", cameraRecul=" + cameraRecul +
+               ", " + super.toString() + // Appel sécurisé au toString() de Vehicule
+               '}';
     }
+
     
 }
