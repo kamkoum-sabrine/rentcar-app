@@ -4,8 +4,12 @@
  */
 package rentcar.management;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Date;
 import rentcar.vehicules.Vehicule;
+
 /**
  *
  * @author LENOVO
@@ -107,7 +111,8 @@ public class Assurance {
         this.dateFin = dateFin;
     }
 
-    public void setCoutAssurance(double coutAssurance) {
+    public void setCoutAssurance (double coutAssurance) throws CoutException  {
+        if(coutAssurance<0) { throw new CoutException();};
         this.coutAssurance = coutAssurance;
     }
 
@@ -132,5 +137,18 @@ public class Assurance {
         return "Assurance{" + "idAssurance=" + idAssurance + ", nomAssureur=" + nomAssureur + ", numeroPolice=" + numeroPolice + ", typeAssurance=" + typeAssurance + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", coutAssurance=" + coutAssurance + ", vehiculeAssure=" + vehiculeAssure + ", franchise=" + franchise + ", couverture=" + couverture + ", status=" + status + '}';
     }
 
+    public int dureeAssuranceJours(){
+        LocalDate startDate = dateDebut.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate endDate = dateFin.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+        Period period = Period.between(startDate, endDate);
+
+        int years = period.getYears();
+        int months = period.getMonths();
+        int days = period.getDays();
+
+        return period.getYears() * 365 + period.getMonths() * 30 + period.getDays();
+
+    }
 
 }

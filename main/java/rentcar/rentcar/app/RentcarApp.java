@@ -9,6 +9,8 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import rentcar.management.Assurance;
 import rentcar.management.CoutException;
 import rentcar.management.DateLocationException;
 import rentcar.management.Garage;
@@ -72,6 +74,58 @@ public class RentcarApp {
        
         Adresse adresseGarage = new Adresse("123 Rue de l'Atelier", "Tunis", "1000", "Tunisie");
         Adresse adresseClient = new Adresse("45 Avenue de la Liberté", "Ariana", "2080", "Tunisie");
-    
+
+        CoordonnéesGPS vehicleLocation = new CoordonnéesGPS(48.8566, 2.3522); // Paris coordinates
+
+        // Create GPS coordinates for another location
+        CoordonnéesGPS anotherLocation = new CoordonnéesGPS(51.5074, -0.1278); // London coordinates
+
+        // Calculate distance between the two locations
+        double distance = vehicleLocation.distanceTo(anotherLocation);
+        System.out.println("Distance between Paris and London: " + distance + " km");
+
+        // Create a Vehicule object
+        Vehicule vehicle = new Vehicule(
+                "ABC123",                 // Matricule
+                "Toyota",                 // Marque
+                "Corolla",                // Modele
+                "90HP",                   // Puissance
+                "Petrol",                 // Carburant
+                2020,                     // AnneeModele
+                30000.0,                  // Kilometrage
+                true,                     // RoueSecours
+                true,                     // CricOutils
+                true,                     // RadioAntenne
+                true,                     // Enjolivers
+                true,                     // Retroviseurs
+                true,                     // ClimatiseurMarche
+                "Sedan",                  // Type
+                45.0,                     // CoutParJour
+                vehicleLocation           // CoordonnéesGPS
+        );
+
+
+        System.out.println(vehicle);
+
+        Date dateDebut = new Date(2024-1900, 10, 15);
+        Date dateFin = new Date(2026-1900, 9, 10);
+
+        Assurance A1 = new Assurance(
+                1,                          // idAssurance
+                "AXA",                      // nomAssureur
+                "123456789",                // numeroPolice
+                "Full Coverage",            // typeAssurance
+                dateDebut,                  // dateDebut
+                dateFin,                    // dateFin
+                500.0,                      // coutAssurance
+                vehicle,                    // vehiculeAssure
+                1000.0,                     // franchise
+                "All risks",                // couverture
+                "Active"                    // status
+        );
+
+        // Print the insurance details
+        System.out.println(A1);
+        System.out.println(A1.dureeAssuranceJours());
     }
 }
