@@ -8,6 +8,8 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
 import java.util.Date;
+
+import rentcar.exceptions.CoutException;
 import rentcar.vehicules.Vehicule;
 
 /**
@@ -111,7 +113,7 @@ public class Assurance {
         this.dateFin = dateFin;
     }
 
-    public void setCoutAssurance (double coutAssurance) throws CoutException  {
+    public void setCoutAssurance (double coutAssurance) throws CoutException {
         if(coutAssurance<0) { throw new CoutException();};
         this.coutAssurance = coutAssurance;
     }

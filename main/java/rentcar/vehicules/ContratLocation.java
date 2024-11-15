@@ -10,8 +10,8 @@ import java.util.Set;
 import java.util.List;
 import java.util.ArrayList;
 
-import rentcar.management.CoutException;
-import rentcar.management.DateLocationException;
+import rentcar.exceptions.CoutException;
+import rentcar.exceptions.DateLocationException;
 import rentcar.personnes.Client;
 
 /**

@@ -4,19 +4,13 @@
 
 package rentcar.rentcar.app;
 
-import java.text.ParseException;
 import java.util.Date;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import rentcar.management.Assurance;
-import rentcar.management.CoutException;
-import rentcar.management.DateLocationException;
-import rentcar.management.Garage;
 import rentcar.personnes.Adresse;
 import rentcar.personnes.Client;
-import rentcar.vehicules.ContratLocation;
 import rentcar.vehicules.CoordonnéesGPS;
 import rentcar.vehicules.FiltreVehicule;
 import rentcar.vehicules.Vehicule;
