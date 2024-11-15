@@ -5,6 +5,11 @@
 package rentcar.vehicules;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.List;
+import java.util.ArrayList;
+
 import rentcar.management.CoutException;
 import rentcar.management.DateLocationException;
 import rentcar.personnes.Client;
@@ -15,17 +20,15 @@ import rentcar.personnes.Client;
  */
 public class ContratLocation {
     private int id;
-    private Client conducteur1;
-    private Client conducteur2;
+    private Set<Client> clients;
     private Vehicule vehicule;
     private Date dateDebut;
     private Date dateFin;
     private double coutParJour;
 
-    public ContratLocation(int id, Client conducteur1, Client conducteur2, Vehicule vehicule, Date dateDebut, Date datFin, double coutParJour) throws DateLocationException, CoutException{
+    public ContratLocation(int id, Vehicule vehicule, Date dateDebut, Date datFin, double coutParJour) throws DateLocationException, CoutException{
+        this.clients =new HashSet<Client>();
         this.id = id;
-        this.conducteur1 = conducteur1;
-        this.conducteur2 = conducteur2;
         this.vehicule = vehicule;
         this.dateDebut = dateDebut;
         this.dateFin = datFin;
@@ -39,12 +42,8 @@ public class ContratLocation {
         return id;
     }
 
-    public Client getConducteur1() {
-        return conducteur1;
-    }
-
-    public Client getConducteur2() {
-        return conducteur2;
+    public Set<Client> getConducteurs() {
+        return this.clients;
     }
 
     public Vehicule getVehicule() {
@@ -67,12 +66,9 @@ public class ContratLocation {
         this.id = id;
     }
 
-    public void setConducteur1(Client conducteur1) {
-        this.conducteur1 = conducteur1;
-    }
-
-    public void setConducteur2(Client conducteur2) {
-        this.conducteur2 = conducteur2;
+    public void setClients(Client c1,Client c2) {
+        this.clients.add(c1) ;
+        this.clients.add(c2);
     }
 
     public void changerVoiture(Vehicule vehicule) {
@@ -95,7 +91,8 @@ public class ContratLocation {
 
     @Override
     public String toString() {
-        return "ContratLocation{" + "id=" + id + ", conducteur1=" + conducteur1 + ", conducteur2=" + conducteur2 + ", vehicule=" + vehicule + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", coutParJour=" + coutParJour + '}';
+        List<String> list = new ArrayList(clients);
+        return "ContratLocation{" + "id=" + id + ", conducteur1=" + list.get(0) + ", conducteur2=" + list.get(1) + ", vehicule=" + vehicule + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", coutParJour=" + coutParJour + '}';
     }
     
     public double calculerCout(){
