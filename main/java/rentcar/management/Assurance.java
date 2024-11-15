@@ -24,7 +24,7 @@ public class Assurance {
     private String numeroPolice;
     private String typeAssurance; 
     private Date dateDebut;        
-    private Date dateFin;          
+    private Date dateFin;
     private double coutAssurance; 
     private Vehicule vehiculeAssure; 
     private double franchise;      

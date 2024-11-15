@@ -10,7 +10,7 @@ import java.util.Date;
  *
  * @author LENOVO
  */
-public class Personne {
+public sealed abstract class Personne permits Chauffeur,Client {
     protected double cin ;
     protected String nom;
     protected String prenom;

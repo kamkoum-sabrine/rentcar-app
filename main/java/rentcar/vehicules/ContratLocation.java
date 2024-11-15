@@ -31,7 +31,7 @@ public class ContratLocation {
         this.id = id;
         this.vehicule = vehicule;
         this.dateDebut = dateDebut;
-        this.dateFin = datFin;
+        this.dateFin = dateFin;
         if (this.dateDebut.compareTo(this.dateFin) > 0) throw new DateLocationException(); 
         
         this.coutParJour = coutParJour;

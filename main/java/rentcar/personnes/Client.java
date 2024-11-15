@@ -12,7 +12,7 @@ import rentcar.vehicules.ContratLocation;
  *
  * @author LENOVO
  */
-public class Client extends Personne{
+public final class Client extends Personne{
      private ArrayList<ContratLocation> historiqueLocation; 
      private String societe;
      private String carteCredit;

@@ -18,10 +18,8 @@ public class Technicien {
     private int numeroTelephone;
     private Garage garage;
 
-    public Technicien() {
-    }
+    public Technicien() {}
 
-    
     public Technicien(int idTechnicien, String nom, String specialite, int experience, int numeroTelephone, Garage garage) {
         this.idTechnicien = idTechnicien;
         this.nom = nom;
