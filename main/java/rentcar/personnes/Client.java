@@ -1,54 +1,51 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package rentcar.personnes;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.Iterator;
+
 import rentcar.vehicules.ContratLocation;
 
-/**
- *
- * @author LENOVO
- */
-public final class Client extends Personne{
-     private ArrayList<ContratLocation> historiqueLocation; 
-     private String societe;
-     private String carteCredit;
-     private String numPermis;
-     private Date datePermis;
-     private String lieuPermis;
-     
-     
 
-     public Client(){
-         super();
-     }
-    public Client(String societe, String carteCredit, double cin, String nom, String prenom, 
-            double tel, String email, Adresse adresse, Date dateNaissance, String nationalite, Date dateCin, String lieuCin,
-            String numPermis, String lieuPermis) {
-            super(cin, nom, prenom, tel, email, adresse, dateNaissance, nationalite, dateCin, lieuCin);
-            this.historiqueLocation= new ArrayList<>();
-            this.societe = societe;
-            this.carteCredit = carteCredit;
-            this.numPermis = numPermis;
-            this.datePermis = datePermis;
-            this.lieuPermis = lieuPermis;
+public final class Client extends Personne implements Comparable<Client> {
+    private ArrayList<ContratLocation> historiqueLocation;
+    private String societe;
+    private String carteCredit;
+    private String numPermis;
+    private Date datePermis;
+    private String lieuPermis;
+
+
+    public Client() {
+        super();
     }
 
-    public void AfficherLesLocations(){
-        for (int i = 0; i < historiqueLocation.size(); i++){
+    public Client(String societe, String carteCredit, double cin, String nom, String prenom,
+                  double tel, String email, Adresse adresse, Date dateNaissance, String nationalite, Date dateCin, String lieuCin,
+                  String numPermis, String lieuPermis) {
+        super(cin, nom, prenom, tel, email, adresse, dateNaissance, nationalite, dateCin, lieuCin);
+        this.historiqueLocation = new ArrayList<>();
+        this.societe = societe;
+        this.carteCredit = carteCredit;
+        this.numPermis = numPermis;
+        this.datePermis = datePermis;
+        this.lieuPermis = lieuPermis;
+    }
+
+    public void AfficherLesLocations() {
+        for (int i = 0; i < historiqueLocation.size(); i++) {
             System.out.println(historiqueLocation.get(i));
         }
     }
 
-    public int CaluculeNbLocations(){
+    public int CaluculeNbLocations() {
         return this.historiqueLocation.size();
     }
-    
-    public boolean VerifierHistorique(){
-        return this.historiqueLocation.size()==1;
+
+    public boolean VerifierHistorique() {
+        return this.historiqueLocation.size() == 1;
     }
 
     public ArrayList<ContratLocation> getHistoriqueLocation() {
@@ -103,12 +100,41 @@ public final class Client extends Personne{
     public String toString() {
         return "Client{" + "historiqueLocation=" + historiqueLocation + ", societe=" + societe + ", carteCredit=" + carteCredit + ", numPermis=" + numPermis + ", datePermis=" + datePermis + ", lieuPermis=" + lieuPermis + '}';
     }
-    
-    public void ajouterLocation(ContratLocation location){
+
+    public void ajouterLocation(ContratLocation location) {
         this.historiqueLocation.add(location);
     }
-    
-    public void supprimerLocation(int index){
+
+    public void supprimerLocation(int index) {
         this.historiqueLocation.remove(index);
     }
+
+    @Override
+    public int compareTo(Client o) {
+        double a = 0;
+        double b = 0;
+        Iterator<ContratLocation> it = this.historiqueLocation.iterator();
+        while (it.hasNext()) {
+            a += it.next().calculerCout();
+        }
+        ;
+        Iterator<ContratLocation> it1 = o.historiqueLocation.iterator();
+        while (it1.hasNext()) {
+            b += it.next().calculerCout();
+        }
+        ;
+
+        return Double.compare(a, b);
+    }
+
+
+    public void ClientPlusFidele(Client o) {
+        int x=this.compareTo(o);
+        if (x==1)
+        { System.out.println("Le client"+this.nom+" "+this.prenom+"est plus fidele que le client"+o.nom+" "+o.prenom);}
+        else if (x==-1)
+        {System.out.println("Le client"+o.nom+" "+o.prenom+"est plus fidele que le client"+this.nom+" "+this.prenom);}
+        else
+        {System.out.println("Les deux clients sont similaires en fidelité");}
+}
 }
