@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package rentcar.personnes;
 
-/**
- *
- * @author LENOVO
- */
+
 public record Adresse(String rue, String ville, String codePostal, String pays) {
 
     // Constructeur additionnel pour fournir une adresse sans code postal
