@@ -7,6 +7,8 @@ package rentcar.rentcar.app;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 
 import rentcar.management.Assurance;
 import rentcar.personnes.Adresse;
@@ -36,13 +38,22 @@ public class RentcarApp {
      
 
         // Appliquer un filtre par prix (<= 100)
-        FiltreVehicule filtrePrix = vehicule -> vehicule.getCoutParJour() <= 100;
+      /**  FiltreVehicule filtrePrix = vehicule -> vehicule.getCoutParJour() <= 100;
         List<Vehicule> vehiculesFiltresParPrix = Vehicule.filtrerVehicules(vehicules, filtrePrix);
 
         System.out.println("Véhicules filtrés par prix (<= 100) :");
         for (Vehicule vehicule : vehiculesFiltresParPrix) {
             System.out.println(vehicule);
-        }
+        }**/
+        // Définir un filtre fonctionnel (lambda expression)
+        FiltreVehicule filtrePrix = vehicule -> vehicule.getCoutParJour() <= 100;
+        
+        // Filtrer les véhicules
+        List<Vehicule> vehiculesFiltres = Vehicule.filtrerVehicules(vehicules, filtrePrix);
+
+        // Afficher les résultats
+        System.out.println("Véhicules filtrés par prix (<= 100) :");
+        vehiculesFiltres.forEach(System.out::println);
        
        
         /** try {
@@ -121,5 +132,13 @@ public class RentcarApp {
         // Print the insurance details
         System.out.println(A1);
         System.out.println(A1.dureeAssuranceJours());
+        
+           // Tri par année décroissante avec un Comparator
+        List<Vehicule> vehiculesTries = vehicules.stream()
+                .sorted((v1, v2) -> Integer.compare(v2.getAnneeModele(), v1.getAnneeModele()))
+                .collect(Collectors.toList());
+
+        System.out.println("Véhicules triés par année de modèle décroissante :");
+        vehiculesTries.forEach(System.out::println);
     }
 }

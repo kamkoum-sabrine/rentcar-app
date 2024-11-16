@@ -7,12 +7,14 @@ package rentcar.vehicules;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
+
 
 /**
  *
  * @author LENOVO
  */
-public class Vehicule {
+public class Vehicule implements Comparable<Vehicule>{
     protected String matricule;
     protected String marque;
     protected String modele;
@@ -179,12 +181,16 @@ public class Vehicule {
     
     public static List<Vehicule> filtrerVehicules(List<Vehicule> vehicules, FiltreVehicule filtre) {
         List<Vehicule> vehiculesFiltres = new ArrayList<>();
-        for (Vehicule vehicule : vehicules) {
+      /**  for (Vehicule vehicule : vehicules) {
             if (filtre.filtrer(vehicule)) {
                 vehiculesFiltres.add(vehicule);
             }
         }
-        return vehiculesFiltres;
+      
+        return vehiculesFiltres;**/
+       return vehicules.stream()  // Crée un Stream à partir de la liste de véhicules
+            .filter(filtre::filtrer)  // Applique le filtre fonctionnel
+            .collect(Collectors.toList());  // Collecte les résultats dans une nouvelle liste
     }
 
     public Double getCoutParJour() {
@@ -195,5 +201,9 @@ public class Vehicule {
         this.coutParJour = coutParJour;
     }
     
-    
+     // Implémentation de l'interface Comparable
+    @Override
+    public int compareTo(Vehicule other) {
+        return Integer.compare(this.AnneeModele, other.AnneeModele); // Tri par année croissante
+    }
 }
