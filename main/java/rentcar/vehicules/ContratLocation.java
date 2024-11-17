@@ -17,7 +17,7 @@ import rentcar.personnes.Client;
 
 public class ContratLocation {
     private int id;
-    private Set<Client> clients;
+    private Set<Client> clients ;
     private Vehicule vehicule;
     private Date dateDebut;
     private Date dateFin;
