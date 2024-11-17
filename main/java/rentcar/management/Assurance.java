@@ -9,7 +9,7 @@ import java.time.Period;
 import java.time.ZoneId;
 import java.util.Date;
 
-import rentcar.exceptions.CoutException;
+import rentcar.exceptionsVehicule.CoutException;
 import rentcar.vehicules.Vehicule;
 
 /**
