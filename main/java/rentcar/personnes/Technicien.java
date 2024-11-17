@@ -1,7 +1,9 @@
 
 package rentcar.personnes;
 
-import rentcar.management.Garage;
+import rentcar.exceptionsPersonne.TelException;
+import rentcar.maintenance.Garage;
+import rentcar.exceptionsPersonne.SpecialiteException;
 
 
 public class Technicien {
@@ -14,12 +16,12 @@ public class Technicien {
 
     public Technicien() {}
 
-    public Technicien(int idTechnicien, String nom, String specialite, int experience, int numeroTelephone, Garage garage) {
+    public Technicien(int idTechnicien, String nom, String specialite, int experience, int numeroTelephone, Garage garage) throws SpecialiteException ,TelException{
         this.idTechnicien = idTechnicien;
         this.nom = nom;
-        this.specialite = specialite;
+        this.specialite = specialite; if(specialite.trim().isEmpty()) throw new SpecialiteException();
         this.experience = experience;
-        this.numeroTelephone = numeroTelephone;
+        this.numeroTelephone = numeroTelephone;if(Double.toString(numeroTelephone).length()!=8) throw new TelException();
         this.garage = garage;
     }
 
@@ -55,16 +57,18 @@ public class Technicien {
         this.nom = nom;
     }
 
-    public void setSpecialite(String specialite) {
+    public void setSpecialite(String specialite) throws SpecialiteException{
         this.specialite = specialite;
+        if(specialite.trim().isEmpty()) throw new SpecialiteException();
     }
 
     public void setExperience(int experience) {
         this.experience = experience;
     }
 
-    public void setNumeroTelephone(int numeroTelephone) {
+    public void setNumeroTelephone(int numeroTelephone) throws TelException {
         this.numeroTelephone = numeroTelephone;
+        if (Double.toString(numeroTelephone).length()!=8) throw new TelException();
     }
 
     public void setGarage(Garage garage) {

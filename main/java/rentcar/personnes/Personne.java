@@ -1,6 +1,9 @@
 
 package rentcar.personnes;
 
+import rentcar.exceptionsPersonne.CinException;
+import rentcar.exceptionsPersonne.TelException;
+
 import java.util.Date;
 
 
@@ -19,11 +22,11 @@ public sealed abstract class Personne permits Chauffeur,Client {
     public Personne(){
         
     }
-    public Personne(double cin, String nom, String prenom, double tel, String email, Adresse adresse, Date dateNaissance, String nationalite, Date dateCin, String lieuCin) {
-        this.cin = cin;
+    public Personne(double cin, String nom, String prenom, double tel, String email, Adresse adresse, Date dateNaissance, String nationalite, Date dateCin, String lieuCin) throws CinException, TelException {
+        this.cin = cin; if (cin<0 || Double.toString(cin).length()!=8) throw new CinException() ;
         this.nom = nom;
         this.prenom = prenom;
-        this.tel = tel;
+        this.tel = tel; if(Double.toString(tel).length()!=8) throw new TelException();
         this.email = email;
         this.adresse = adresse;
         this.dateNaissance = dateNaissance;
@@ -72,8 +75,8 @@ public sealed abstract class Personne permits Chauffeur,Client {
         return lieuCin;
     }
 
-    public void setCin(double cin) {
-        this.cin = cin;
+    public void setCin(double cin) throws CinException{
+        this.cin = cin; if (cin<0 || Double.toString(cin).length()!=8) throw new CinException() ;
     }
 
     public void setNom(String nom) {
@@ -84,8 +87,9 @@ public sealed abstract class Personne permits Chauffeur,Client {
         this.prenom = prenom;
     }
 
-    public void setTel(double tel) {
+    public void setTel(double tel) throws TelException {
         this.tel = tel;
+        if(Double.toString(tel).length()!=8) throw new TelException();
     }
 
     public void setEmail(String email) {

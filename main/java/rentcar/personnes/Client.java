@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
 
+import rentcar.exceptionsPersonne.CinException;
 import rentcar.vehicules.ContratLocation;
 
 
@@ -24,7 +25,7 @@ public final class Client extends Personne implements Comparable<Client> {
 
     public Client(String societe, String carteCredit, double cin, String nom, String prenom,
                   double tel, String email, Adresse adresse, Date dateNaissance, String nationalite, Date dateCin, String lieuCin,
-                  String numPermis, String lieuPermis) {
+                  String numPermis, String lieuPermis) throws CinException {
         super(cin, nom, prenom, tel, email, adresse, dateNaissance, nationalite, dateCin, lieuCin);
         this.historiqueLocation = new ArrayList<>();
         this.societe = societe;
