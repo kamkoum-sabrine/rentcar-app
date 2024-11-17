@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-import rentcar.management.Assurance;
+import rentcar.vehicules.Assurance;
 import rentcar.personnes.Adresse;
 import rentcar.personnes.Client;
 import rentcar.vehicules.CoordonnéesGPS;

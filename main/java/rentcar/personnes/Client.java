@@ -136,5 +136,12 @@ public final class Client extends Personne implements Comparable<Client> {
         {System.out.println("Le client"+o.nom+" "+o.prenom+"est plus fidele que le client"+this.nom+" "+this.prenom);}
         else
         {System.out.println("Les deux clients sont similaires en fidelité");}
-}
+    }
+    
+    public boolean estFidele() {
+    // Par exemple, un client est considéré fidèle s'il a effectué au moins 10 locations
+    int seuilFidelite = 10;
+    return historiqueLocation.size() >= seuilFidelite;
+    }
+
 }
