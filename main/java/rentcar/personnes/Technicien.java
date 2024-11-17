@@ -1,15 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package rentcar.personnes;
 
 import rentcar.management.Garage;
 
-/**
- *
- * @author LENOVO
- */
+
 public class Technicien {
     private int idTechnicien;
     private String nom;

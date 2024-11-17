@@ -1,28 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package rentcar.personnes;
 
 import java.util.Date;
 
-/**
- *
- * @author LENOVO
- */
+
 
 public final class Chauffeur extends Personne{
     private boolean disponibilite;
     private int experience;
     private String numPermis;
+    private Permis categoriePermis;
     private Date datePermis;
     private String lieuPermis;
-    private String categoriePermis;
     private int nbJoursTravaille;
     private double prixJours;
 
     public Chauffeur(boolean disponibilite, int experience, String numPermis, Date datePermis, String lieuPermis,
-            String categoriePermis, double cin, String nom, String prenom, double tel, String email, Adresse adresse, 
+            Permis categoriePermis, double cin, String nom, String prenom, double tel, String email, Adresse adresse,
             Date dateNaissance, String nationalite, Date dateCin, String lieuCin) {
         super(cin, nom, prenom, tel, email, adresse, dateNaissance, nationalite, dateCin, lieuCin);
         this.disponibilite = disponibilite;
@@ -66,7 +60,7 @@ public final class Chauffeur extends Personne{
     }
 
     public String getCategoriePermis() {
-        return categoriePermis;
+        return categoriePermis.getDescription() ;
     }
 
     public void setNumPermis(String numPermis) {
@@ -81,7 +75,7 @@ public final class Chauffeur extends Personne{
         this.lieuPermis = lieuPermis;
     }
 
-    public void setCategoriePermis(String categoriePermis) {
+    public void setCategoriePermis(Permis categoriePermis) {
         this.categoriePermis = categoriePermis;
     }
 }

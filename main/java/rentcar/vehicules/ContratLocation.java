@@ -14,10 +14,7 @@ import rentcar.exceptionsVehicule.CoutException;
 import rentcar.exceptionsVehicule.DateLocationException;
 import rentcar.personnes.Client;
 
-/**
- *
- * @author LENOVO
- */
+
 public class ContratLocation {
     private int id;
     private Set<Client> clients;
